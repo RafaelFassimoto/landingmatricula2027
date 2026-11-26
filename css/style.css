@@ -2600,6 +2600,12 @@ button {
     color: #123b78;
 }
 
+.imagem-ajustavel {
+  display: block;
+  margin: 0 auto; /* Centraliza na horizontal */
+  max-width: 100%; /* Ajusta à largura da tela/contêiner sem estourar */
+  height: auto; /* Mantém a proporção original */
+}
 
 /* BLOQUEAR ROLAGEM COM MODAL ABERTA */
 
