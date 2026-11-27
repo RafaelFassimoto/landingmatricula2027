@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berçário | Fadelito</title>
+
+<style>
+:root {
+    --blue: #1b4e9c;
+    --blue-dark: #12366f;
+    --yellow: #ffd802;
+    --text: #333b48;
+    --muted: #687386;
+    --light: #f5f8fc;
+    --border: #e3eaf3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+.topbar {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+}
+
+.topbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    width: 155px;
+}
+
+.logo img {
+    max-height: 58px;
+    object-fit: contain;
+}
+
+.back-link {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 85px 0 75px;
+    background: var(--light);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border: 3px solid rgba(255,216,2,.65);
+    border-radius: 18px;
+    transform: rotate(-10deg);
+}
+
+.hero::before {
+    width: 100px;
+    height: 100px;
+    top: 35px;
+    right: 8%;
+}
+
+.hero::after {
+    width: 55px;
+    height: 55px;
+    bottom: 30px;
+    left: 5%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    color: var(--blue-dark);
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero p {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.hero-tag {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 9px 18px;
+    border-radius: 30px;
+    background: var(--yellow);
+    color: var(--blue-dark);
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.page-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 15px rgba(20,50,90,.05);
+}
+
+.nav-content {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 15px 0;
+    white-space: nowrap;
+}
+
+.nav-content a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.nav-content a:hover {
+    color: var(--blue-dark);
+}
+
+.content-section {
+    padding: 75px 0;
+    scroll-margin-top: 75px;
+}
+
+.content-section.alt {
+    background: var(--light);
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title .eyebrow {
+    margin-bottom: 8px;
+}
+
+.section-title h2 {
+    color: var(--blue-dark);
+    font-size: clamp(27px, 4vw, 38px);
+    line-height: 1.2;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 750px;
+}
+
+.intro-text {
+    max-width: 900px;
+}
+
+.intro-text p {
+    margin-bottom: 18px;
+}
+
+.highlight {
+    border-left: 4px solid var(--yellow);
+    background: #fff;
+    padding: 22px 25px;
+    border-radius: 0 12px 12px 0;
+    margin-top: 25px;
+}
+
+.highlight strong {
+    color: var(--blue);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.info-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(25,55,95,.04);
+}
+
+.info-card h3 {
+    color: var(--blue);
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.info-card ul {
+    padding-left: 20px;
+}
+
+.info-card li {
+    margin-bottom: 8px;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 22px 0;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+}
+
+th, td {
+    border: 1px solid var(--border);
+    padding: 13px 15px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+}
+
+td {
+    font-size: 14px;
+}
+
+.fruit-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.fruit-list li {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--blue-dark);
+}
+
+.note {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.schedule td:first-child {
+    width: 150px;
+    color: var(--blue);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.form-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 18px;
+}
+
+.form-card h3 {
+    color: var(--blue);
+    margin-bottom: 15px;
+}
+
+.form-card label {
+    display: block;
+    font-weight: 700;
+    margin: 15px 0 6px;
+}
+
+.form-card input,
+.form-card textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d5deea;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.form-card textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.form-intro {
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 0;
+    border-radius: 30px;
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.btn:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+.footer {
+    padding: 35px 0;
+    background: var(--blue-dark);
+    color: #fff;
+    text-align: center;
+}
+
+.footer strong {
+    color: var(--yellow);
+}
+
+@media (max-width: 700px) {
+    .hero {
+        padding: 65px 0;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .content-section {
+        padding: 55px 0;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fruit-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-card {
+        padding: 20px;
+    }
+
+    .topbar-content {
+        align-items: flex-start;
+    }
+	
+	
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="container topbar-content">
+        <div class="logo"><a href="index.html#turmas"><img src="images/logo-fadelito.svg" alt="Fadelito"></a></div>
+        <a class="back-link" href="index.html#turmas">← Voltar para as turmas</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content">
+        <span class="eyebrow">Educação Infantil • 0 a 1 ano</span>
+        <h1>Um começo cheio de <span>carinho e descobertas.</span></h1>
+        <p>
+            Conheça um pouco mais sobre o trabalho do Berçário,
+            nossa proposta de desenvolvimento e as orientações
+            importantes para a rotina do seu bebê.
+        </p>
+        <span class="hero-tag">Berçário Fadelito</span>
+    </div>
+</section>
+
+<nav class="page-nav">
+    <div class="container nav-content">
+        <a href="#proposta">Nossa proposta</a>
+        <a href="#materiais">Materiais pessoais</a>
+        <a href="#alimentacao">Alimentação</a>
+        <a href="#cuidados">Cuidados diários</a>
+        <a href="#rotina">Rotina</a>
+        <a href="#pessoalidade">Ficha de pessoalidade</a>
+    </div>
+</nav>
+
+<main>
+
+<!-- NOSSA PROPOSTA -->
+<section class="content-section" id="proposta">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow">Nosso jeito de cuidar e educar</span>
+            <h2>Um projeto pensado para cada bebê</h2>
+        </div>
+
+        <div class="intro-text">
+            <p>
+                No Berçário, elaboramos um projeto de desenvolvimento
+                individualizado para cada criança. Em um ambiente planejado
+                e rico em estímulos visuais e sensoriais, repleto de músicas,
+                brincadeiras e interações, a convivência se transforma em
+                momentos de alegria e descobertas naturais.
+            </p>
+
+            <p>
+                Utilizamos um Programa Exclusivo de Desenvolvimento para
+                Bebês, chamado <strong>Baby Learning</strong>, criado por
+                especialistas das áreas de Saúde e Educação. Nossa rotina
+                inclui atividades que trabalham os aspectos cognitivo,
+                psicomotor e da linguagem, criando situações que ajudam
+                o bebê a socializar e a se integrar, ampliando e acelerando
+                seu horizonte de conquistas.
+            </p>
+
+            <p>
+                O afeto, o carinho e o vínculo pessoal são a base das nossas
+                relações, proporcionando aos pequenos sentimentos de
+                segurança, confiança e acolhimento.
+            </p>
+
+            <p>
+                Esse trabalho é feito em parceria com a família, pois
+                acreditamos que somente juntos podemos apoiar cada fase
+                do crescimento, promovendo um desenvolvimento saudável
+                e significativo para os bebês.
+            </p>
+        </div>
+
+        <div class="highlight">
+            <strong>Baby Learning</strong>
+            <p>
+                Um programa exclusivo de desenvolvimento para bebês,
+                criado por especialistas das áreas de Saúde e Educação.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- MATERIAIS PESSOAIS -->
+<section class="content-section alt" id="materiais">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow">Orientações para a família</span>
+            <h2>Materiais de uso pessoal</h2>
+            <p>
+                Confira os itens indicados para o dia a dia do bebê no Berçário.
+            </p>
+        </div>
+
+        <div class="cards-grid">
+
+            <div class="info-card">
+                <h3>Enxoval</h3>
+                <ul>
+                    <li>01 jogo de berço (lençol, fronha e travesseiro);</li>
+                    <li>01 cobertor/edredom/manta de linha.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Acessórios</h3>
+                <ul>
+                    <li>01 mamadeira para leite;</li>
+                    <li>01 mamadeira pequena para água;</li>
+                    <li>01 lata de leite.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Sacolinha de higiene</h3>
+                <ul>
+                    <li>01 sabonete líquido;</li>
+                    <li>01 creme para assaduras;</li>
+                    <li>01 pacote de fraldas descartáveis;</li>
+                    <li>01 pacote de lenços umedecidos;</li>
+                    <li>01 pacote de algodão (rolo ou quadrado);</li>
+                    <li>01 shampoo infantil (opcional).</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Mochila diária</h3>
+                <ul>
+                    <li>02 trocas de verão;</li>
+                    <li>02 trocas de inverno;</li>
+                    <li>02 fraldas de boca;</li>
+                    <li>02 babadores;</li>
+                    <li>01 chupeta (opcional);</li>
+                    <li>01 toalha com capuz.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ALIMENTAÇÃO -->
+<section class="content-section" id="alimentacao">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow">Alimentação do bebê</span>
+            <h2>Cuidado e atenção em cada fase</h2>
+        </div>
+
+        <p>
+            A introdução da papinha salgada é orientada individualmente
+            pelo pediatra. Devido às diversas particularidades, ela pode
+            ser enviada diariamente ou semanalmente pela família.
+            Como alternativa saudável e prática, nosso cardápio oferece
+            papinhas próprias, com textura agradável, sem glúten,
+            conservantes, aditivos, óleo e sal. Elas contêm todas as
+            proteínas e leguminosas adequadas para a faixa etária e
+            temos opções para bebês com restrições a proteínas.
+        </p>
+
+        <p style="margin-top:18px;">
+            Geralmente a partir do <strong>7º ou 8º mês</strong>, a
+            alimentação se torna mais abrangente. A partir daí, os pais
+            podem contar com o <strong>cardápio servido pela escola</strong>.
+            Orientamos que o cardápio, elaborado por nossa nutricionista,
+            seja levado ao pediatra para que ele verifique se há alguma
+            restrição alimentar a ser observada.
+        </p>
+
+        <div style="margin-top:35px;">
+            <h3 style="color:var(--blue);">1. Frutas</h3>
+            <p style="margin-top:10px;">
+                As frutas devem ser enviadas pelos pais na segunda-feira.
+                O cardápio, também elaborado por nossa nutricionista,
+                é rico em vitaminas e equilibrado em relação ao índice glicêmico.
+            </p>
+
+            <h3 style="color:var(--blue); margin-top:25px;">
+                Frutas para consumo semanal
+            </h3>
+
+            <ul class="fruit-list">
+                <li>½ abacate</li>
+                <li>3 bananas</li>
+                <li>1 maçã</li>
+                <li>2 peras</li>
+                <li>4 laranjas lima</li>
+                <li>1 mamão</li>
+                <li>1 manga Palmer</li>
+            </ul>
+        </div>
+
+        <h3 style="color:var(--blue); margin-top:35px;">
+            Cardápio semanal de frutas
+        </h3>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Fruta</th>
+                        <td>Mamão</td>
+                        <td>Maçã com laranja</td>
+                        <td>Banana</td>
+                        <td>Pera com laranja</td>
+                        <td>Banana</td>
+                    </tr>
+                    <tr>
+                        <th>Fruta</th>
+                        <td>Abacate</td>
+                        <td>Pera</td>
+                        <td>Mamão</td>
+                        <td>Manga</td>
+                        <td>Maçã com laranja</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- CUIDADOS -->
+<section class="content-section alt" id="cuidados">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow">Cuidados diários</span>
+            <h2>Banho, toalhas e roupa de cama</h2>
+        </div>
+
+        <div class="cards-grid">
+            <div class="info-card">
+                <h3>2. Banho e toalhas</h3>
+                <p>
+                    Para mantermos a rotina das crianças, o banho diário
+                    na escola é oferecido apenas aos bebês do Período Integral.
+                    Para os demais alunos, a toalha enviada na mochila será
+                    utilizada somente em caso de necessidade.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>3. Roupa de cama</h3>
+                <p>
+                    A roupa de cama dos bebês é enviada para casa todas
+                    as sextas-feiras e deve retornar para a escola na segunda-feira.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROTINA -->
+<section class="content-section" id="rotina">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow">Organização do dia</span>
+            <h2>Rotina do Berçário</h2>
+            <p>
+                Uma rotina organizada, respeitando as necessidades
+                e a individualidade de cada bebê.
+            </p>
+        </div>
+
+        <div class="table-wrap">
+            <table class="schedule">
+                <tbody>
+                    <tr><td>7:30 – 8:00</td><td>Mamadeira</td></tr>
+                    <tr><td>8:00</td><td>Entrada / Verificação das agendas digitais e fraldas</td></tr>
+                    <tr><td>8:00 – 9:00</td><td>Banho de sol / Parque</td></tr>
+                    <tr><td>9:00 – 9:30</td><td>Papinha de frutas</td></tr>
+                    <tr><td>9:30 – 10:30</td><td>Troca / Banho<br>Hora da história / Jogo simbólico / Roda de música (Baby Learning)</td></tr>
+                    <tr><td>10:30 – 11:30</td><td>Almoço</td></tr>
+                    <tr><td>11:30 – 12:00</td><td>Troca / Fechamento das agendas da manhã</td></tr>
+                    <tr><td>12:00 – 13:00</td><td>Soninho</td></tr>
+                    <tr><td>13:00 – 13:30</td><td>Mamadeira / Troca (ao acordar)</td></tr>
+                    <tr><td>13:30 – 14:30</td><td>Sala de estimulação<br>Módulos de espuma / Jogos motores (Baby Learning)</td></tr>
+                    <tr><td>14:30 – 15:00</td><td>Papinha de frutas</td></tr>
+                    <tr><td>15:00 – 15:30</td><td>Troca</td></tr>
+                    <tr><td>15:30 – 16:30</td><td>Banho de sol / Parque</td></tr>
+                    <tr><td>16:30 – 17:30</td><td>Jantar / Saída</td></tr>
+                    <tr><td>17:30</td><td>Troca / Fechamento das agendas da tarde</td></tr>
+                    <tr><td>18:30</td><td>Mamadeira</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight">
+            <p>
+                Entre a última mamadeira/refeição e a saída do aluno deve
+                haver um intervalo mínimo de <strong>30 minutos</strong>
+                para que haja tempo para a digestão, evitando o refluxo.
+            </p>
+            <p style="margin-top:12px;">
+                Por respeitarmos a individualidade de cada bebê, esta rotina
+                está sujeita a eventuais alterações.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FICHA DE PESSOALIDADE -->
+<section class="content-section alt" id="pessoalidade">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow">Parceria com a família</span>
+            <h2>Ficha de pessoalidade</h2>
+            <p>
+                Para ajudar as titias do Berçário a conhecerem um pouquinho
+                melhor o bebê, pedimos que a família descreva alguns detalhes
+                da rotina em casa.
+            </p>
+        </div>
+
+        <form id="personalidadeForm">
+
+            <div class="form-card">
+                <label for="nomeBebe">Nome do bebê</label>
+                <input id="nomeBebe" name="nomeBebe" type="text">
+
+                <label for="nascimento">Data de nascimento</label>
+                <input id="nascimento" name="nascimento" type="text"
+                       placeholder="DD / MM / AAAA">
+
+                <label for="familia">Família</label>
+                <input id="familia" name="familia" type="text">
+            </div>
+
+            <div class="form-card">
+                <h3>1. Durante o dia, meus horários de soninho costumam ser:</h3>
+                <textarea name="soninho"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3>2. Tenho alguma preferência para dormir? (paninho, ursinho, chupeta, posição?)</h3>
+                <textarea name="preferenciaSono"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3>3. Fale sobre as mamadeiras: horários em que costumo mamar, qual a quantidade de leite e a forma de preparo.</h3>
+                <textarea name="mamadeiras"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3>4. Já como papinha de frutas? Quais minhas frutas preferidas?</h3>
+                <textarea name="frutas"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3>5. Já como papinha salgada? Como você me oferece? (triturada, peneirada, levemente amassada)</h3>
+                <textarea name="papinhaSalgada"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3>6. Já tomo água?</h3>
+                <textarea name="agua"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3>7. Eu tomo algum medicamento? Vitamina? Em quais horários e em qual dosagem?</h3>
+                <textarea name="medicamentos"></textarea>
+            </div>
+
+            <div class="form-card">
+                <h3>8. Há alguma outra particularidade que você gostaria de comentar ou descrever?</h3>
+                <textarea name="observacoes"></textarea>
+            </div>
+
+            <p class="note">
+                Esta ficha é uma reprodução digital das perguntas presentes
+                no material de orientação do Berçário.
+            </p>
+
+            <button class="btn" type="button" onclick="window.print()">
+                Imprimir ficha
+            </button>
+
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container logo">
+<img src="images/logo-fadelito-branco.svg" alt="Fadelito">
+    </div>
+</footer>
+
+</body>
+</html>

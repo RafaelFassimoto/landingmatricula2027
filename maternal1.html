@@ -1,0 +1,932 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maternal I | Fadelito</title>
+
+<style>
+:root {
+    --blue: #1b4e9c;
+    --blue-dark: #12366f;
+    --yellow: #ffd802;
+    --text: #333b48;
+    --muted: #687386;
+    --light: #f5f8fc;
+    --border: #e3eaf3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+/* CABEÇALHO */
+
+.topbar {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+}
+
+.topbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    width: 155px;
+}
+
+.logo img {
+    max-height: 58px;
+    object-fit: contain;
+}
+
+.back-link {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 85px 0 75px;
+    background: var(--light);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border: 3px solid rgba(255,216,2,.65);
+    border-radius: 18px;
+    transform: rotate(-10deg);
+}
+
+.hero::before {
+    width: 100px;
+    height: 100px;
+    top: 35px;
+    right: 8%;
+}
+
+.hero::after {
+    width: 55px;
+    height: 55px;
+    bottom: 30px;
+    left: 5%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    color: var(--blue-dark);
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero p {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.hero-tag {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 9px 18px;
+    border-radius: 30px;
+    background: var(--yellow);
+    color: var(--blue-dark);
+    font-weight: 800;
+    font-size: 14px;
+}
+
+/* NAVEGAÇÃO */
+
+.page-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 15px rgba(20,50,90,.05);
+}
+
+.nav-content {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 15px 0;
+    white-space: nowrap;
+}
+
+.nav-content a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.nav-content a:hover {
+    color: var(--blue-dark);
+}
+
+/* SEÇÕES */
+
+.content-section {
+    padding: 75px 0;
+    scroll-margin-top: 75px;
+}
+
+.content-section.alt {
+    background: var(--light);
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title .eyebrow {
+    margin-bottom: 8px;
+}
+
+.section-title h2 {
+    color: var(--blue-dark);
+    font-size: clamp(27px, 4vw, 38px);
+    line-height: 1.2;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 750px;
+}
+
+.intro-text {
+    max-width: 900px;
+}
+
+.intro-text p {
+    margin-bottom: 18px;
+}
+
+/* CARDS */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.info-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(25,55,95,.04);
+}
+
+.info-card h3 {
+    color: var(--blue);
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.info-card ul {
+    padding-left: 20px;
+}
+
+.info-card li {
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    color: var(--text);
+}
+
+.card-note {
+    margin-top: 15px;
+    padding: 12px;
+    background: var(--light);
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* DESTAQUE */
+
+.highlight {
+    border-left: 4px solid var(--yellow);
+    background: #fff;
+    padding: 22px 25px;
+    border-radius: 0 12px 12px 0;
+    margin-top: 25px;
+}
+
+.highlight strong {
+    color: var(--blue);
+}
+
+/* CONTEÚDOS PEDAGÓGICOS */
+
+.learning-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.learning-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px 28px;
+    box-shadow: 0 8px 25px rgba(25,55,95,.04);
+}
+
+.learning-card h3 {
+    color: var(--blue);
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.learning-card p {
+    margin-bottom: 10px;
+}
+
+.learning-card p:last-child {
+    margin-bottom: 0;
+}
+
+.learning-card strong {
+    color: var(--blue-dark);
+}
+
+/* DATAS COMEMORATIVAS */
+
+.calendar-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.calendar-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 8px 25px rgba(25,55,95,.04);
+}
+
+.calendar-card h3 {
+    color: var(--blue);
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.calendar-card ul {
+    padding-left: 19px;
+}
+
+.calendar-card li {
+    margin-bottom: 9px;
+}
+
+.calendar-card li:last-child {
+    margin-bottom: 0;
+}
+
+/* RODAPÉ */
+
+.footer {
+    padding: 35px 0;
+    background: var(--blue-dark);
+    color: #fff;
+    text-align: center;
+}
+
+.footer strong {
+    color: var(--yellow);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+    .hero {
+        padding: 65px 0;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .content-section {
+        padding: 55px 0;
+    }
+
+    .cards-grid,
+    .calendar-list {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card,
+    .learning-card,
+    .calendar-card {
+        padding: 20px;
+    }
+
+    .topbar-content {
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CABEÇALHO -->
+
+<header class="topbar">
+    <div class="container topbar-content">
+        <div class="logo"><a href="index.html#turmas"><img src="images/logo-fadelito.svg" alt="Fadelito"></a></div>
+        <a class="back-link" href="index.html#turmas">← Voltar para as turmas</a>
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="container hero-content">
+
+        <span class="eyebrow">Educação Infantil • 2 a 3 anos</span>
+
+        <h1>
+            Explorando o mundo com
+            <span>todos os sentidos.</span>
+        </h1>
+
+        <p>
+            Uma fase de descobertas, novas relações e grandes conquistas.
+            Conheça nossa proposta pedagógica, as orientações para a
+            família e as experiências que fazem parte do Maternal I.
+        </p>
+
+        <span class="hero-tag">Maternal I Fadelito</span>
+
+    </div>
+</section>
+
+
+<!-- NAVEGAÇÃO -->
+
+<nav class="page-nav">
+    <div class="container nav-content">
+        <a href="#proposta">Nossa proposta</a>
+        <a href="#materiais">Materiais pessoais</a>
+        <a href="#conteudos">Plano de curso</a>
+        <a href="#datas">Datas comemorativas</a>
+    </div>
+</nav>
+
+
+<main>
+
+<!-- NOSSA PROPOSTA -->
+
+<section class="content-section" id="proposta">
+    <div class="container">
+
+        <div class="section-title">
+            <span class="eyebrow">Nosso jeito de cuidar e educar</span>
+            <h2>Descobertas que se transformam em conquistas</h2>
+        </div>
+
+        <div class="intro-text">
+
+            <p>
+                No Maternal I, incentivamos o desenvolvimento da linguagem
+                oral, aprimorando a dicção das palavras e ampliando o
+                vocabulário; estimulamos, por meio de vivências e
+                experimentações, as percepções táteis, gustativas,
+                olfativas, auditivas e visuais; apoiamos as crianças
+                na construção e mediação das primeiras relações sociais,
+                trabalhando e respeitando o egocentrismo.
+            </p>
+
+            <p>
+                Com brincadeiras e jogos psicomotores, auxiliamos no
+                desenvolvimento da coordenação motora grossa e, por meio
+                de materiais diversos, atividades de desenho, pintura,
+                picote e jogos psicomotores, a coordenação motora fina.
+            </p>
+
+            <p>
+                Nos parques, brinquedoteca e salas de atividades,
+                a ludicidade é elemento fundamental na dinâmica diária
+                da turma. É por meio da brincadeira que a criança faz
+                descobertas, exterioriza suas emoções, promove relações
+                sociais, desenvolve a criatividade e é feliz.
+            </p>
+
+            <p>
+                Não podemos esquecer também que este é um período muito
+                importante para os pequeninos, pois marca a recente
+                despedida das fraldas.
+            </p>
+
+            <p>
+                É uma fase linda e cheia de marcos importantes, em que
+                o educador amoroso, atento e dinâmico tem um papel
+                fundamental, apoiando as crianças em suas novas relações,
+                encorajando a independência, a autonomia, motivando e
+                orientando em cada pequeno desafio para que se transformem
+                em grandes conquistas.
+            </p>
+
+        </div>
+
+        <div class="highlight">
+            <strong>Aprender por meio da brincadeira</strong>
+            <p>
+                A ludicidade está presente na rotina do Maternal I,
+                favorecendo descobertas, expressão das emoções,
+                criatividade e relações sociais.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MATERIAIS PESSOAIS -->
+
+<section class="content-section alt" id="materiais">
+    <div class="container">
+
+        <div class="section-title">
+            <span class="eyebrow">Orientações para a família</span>
+            <h2>Materiais de uso pessoal</h2>
+            <p>
+                Confira os itens que devem acompanhar a criança
+                em sua rotina no Maternal I.
+            </p>
+        </div>
+
+        <div class="cards-grid">
+
+            <!-- MOCHILA -->
+
+            <div class="info-card">
+                <h3>Mochila diária</h3>
+
+                <ul>
+                    <li>01 troca de verão e 01 troca de inverno completas do uniforme escolar;</li>
+                    <li>01 sacolinha plástica para a roupa suja;</li>
+                    <li>01 chupeta (opcional);</li>
+                    <li>01 garrafinha para água.</li>
+                </ul>
+
+                <div class="card-note">
+                    Para os alunos do Período Integral e Intermediário,
+                    solicitamos que sejam enviados todos os dias na
+                    mochila: um lençol, uma manta e um pequeno
+                    travesseiro para o descanso.
+                </div>
+            </div>
+
+
+            <!-- LANCHEIRA -->
+
+            <div class="info-card">
+                <h3>Lancheira</h3>
+
+                <ul>
+                    <li>01 lanche completo para cada período.</li>
+                </ul>
+
+                <p style="margin-top:15px;">
+                    <strong>Exemplos:</strong> fruta (já descascada
+                    e cortada), bisnaguinha, suco/leite.
+                </p>
+            </div>
+
+
+            <!-- HIGIENE -->
+
+            <div class="info-card">
+                <h3>Sacolinha de higiene</h3>
+
+                <ul>
+                    <li>01 escova de dentes;</li>
+                    <li>01 creme dental;</li>
+                    <li>01 toalhinha.</li>
+                </ul>
+
+                <div class="card-note">
+                    A sacolinha de higiene deve vir todos os dias
+                    na mochila do aluno.
+                </div>
+            </div>
+
+
+            <!-- KIT FRALDA -->
+
+            <div class="info-card">
+                <h3>Kit fralda</h3>
+
+                <ul>
+                    <li>03 fraldas descartáveis (para cada período);</li>
+                    <li>01 pacote de lenços umedecidos;</li>
+                    <li>01 creme para assaduras.</li>
+                </ul>
+
+                <div class="card-note">
+                    O Kit Fralda deve vir todos os dias na mochila
+                    do aluno.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTEÚDOS DO PLANO DE CURSO -->
+
+<section class="content-section" id="conteudos">
+    <div class="container">
+
+        <div class="section-title">
+            <span class="eyebrow">Aprendizagem e desenvolvimento</span>
+            <h2>Conteúdos do plano de curso</h2>
+            <p>
+                Conheça os campos de experiências e as propostas
+                que fazem parte do trabalho pedagógico do Maternal I.
+            </p>
+        </div>
+
+        <div class="learning-list">
+
+            <article class="learning-card">
+                <h3>Corpo, Gestos e Movimentos</h3>
+
+                <p>
+                    <strong>Música rítmica corporal:</strong>
+                    explorar diferentes ritmos e movimentos, como
+                    marchar, pular, girar, utilizando instrumentos
+                    percussivos simples (panelas, colheres de pau etc.).
+                </p>
+
+                <p>
+                    <strong>Dança:</strong>
+                    introduzir a dança como forma de expressão corporal,
+                    explorando diferentes estilos musicais e movimentos.
+                </p>
+
+                <p>
+                    <strong>Música e histórias:</strong>
+                    criar histórias a partir de músicas, incentivando
+                    a imaginação e a criatividade.
+                </p>
+            </article>
+
+
+            <article class="learning-card">
+                <h3>Traços, Sons, Cores e Formas</h3>
+
+                <p>
+                    <strong>Arte (técnicas mistas):</strong>
+                    combinar diferentes materiais e técnicas artísticas
+                    (pintura, colagem, modelagem), incentivando a
+                    experimentação e a descoberta de novas possibilidades.
+                </p>
+
+                <p>
+                    <strong>Natureza na arte:</strong>
+                    utilizar elementos da natureza (folhas, pedras,
+                    sementes) como materiais para criar obras de arte.
+                </p>
+
+                <p>
+                    <strong>Arte e música:</strong>
+                    combinar atividades artísticas com a música,
+                    criando experiências multissensoriais.
+                </p>
+            </article>
+
+
+            <article class="learning-card">
+                <h3>Escuta, Fala, Pensamento e Imaginação</h3>
+
+                <p>
+                    Por meio da linguagem oral e escrita, contação
+                    de histórias, utilizando diferentes recursos como
+                    fantoches, desenhos e objetos, estimula-se a
+                    imaginação e a compreensão da linguagem.
+                </p>
+
+                <p>
+                    Criar pequenas peças teatrais, incentivando a
+                    expressão oral e a interação social.
+                </p>
+
+                <p>
+                    Oferecer materiais para a criança rabiscar e
+                    desenhar livremente, estimulando a expressão gráfica.
+                </p>
+            </article>
+
+
+            <article class="learning-card">
+                <h3>O Eu, o Outro e o Nós</h3>
+
+                <p>
+                    <strong>Natureza e Sociedade:</strong>
+                    promover jogos que estimulem a cooperação,
+                    a empatia e o respeito ao outro.
+                </p>
+
+                <p>
+                    <strong>Cuidados com o meio ambiente:</strong>
+                    incentivar atitudes de cuidado com o meio ambiente,
+                    como a coleta seletiva e a economia de água.
+                </p>
+            </article>
+
+
+            <article class="learning-card">
+                <h3>Espaços, Tempos, Quantidades, Relações e Transformações</h3>
+
+                <p>
+                    Utilizar jogos e brincadeiras para trabalhar noções
+                    de espaço, tempo, quantidade e sequência.
+                </p>
+
+                <p>
+                    Brincar de montar blocos para construir diferentes
+                    estruturas, explorando noções de forma, tamanho
+                    e espaço.
+                </p>
+
+                <p>
+                    Propor atividades de classificação de objetos
+                    por diferentes critérios (cor, tamanho, forma),
+                    desenvolvendo a habilidade de comparar e analisar.
+                </p>
+            </article>
+
+
+            <article class="learning-card">
+                <h3>Atitudes de Cortesia</h3>
+
+                <p>
+                    <strong>Rotinas:</strong>
+                    estabelecer situações que incluam o uso de
+                    expressões como “obrigado”, “por favor” e “até logo”.
+                </p>
+
+                <p>
+                    <strong>Jogos de papéis:</strong>
+                    criar situações que envolvam o uso de frases
+                    de cortesia.
+                </p>
+
+                <p>
+                    <strong>Respeito às diferenças:</strong>
+                    promover o respeito às diferenças individuais,
+                    como gênero, etnia e habilidades.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- DATAS COMEMORATIVAS -->
+
+<section class="content-section alt" id="datas">
+    <div class="container">
+
+        <div class="section-title">
+            <span class="eyebrow">Vivências ao longo do ano</span>
+            <h2>Datas comemorativas</h2>
+
+            <p>
+                As datas comemorativas são momentos especiais para
+                celebrar a vida, a cultura e as conquistas da humanidade.
+                Ao longo do ano, diversas datas marcam o calendário e
+                proporcionam oportunidades para celebrarmos juntos.
+                Vamos explorar algumas das principais datas
+                comemorativas e suas particularidades.
+            </p>
+        </div>
+
+        <div class="calendar-list">
+
+            <article class="calendar-card">
+                <h3>Fevereiro: Carnaval</h3>
+                <ul>
+                    <li>
+                        <strong>Carnaval:</strong>
+                        uma festa popular que contagia o Brasil com
+                        muita música, dança e alegria. As cidades se
+                        transformam em verdadeiros palcos, com blocos
+                        de rua, escolas de samba e fantasias exuberantes.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Março: Dia Internacional da Mulher</h3>
+                <ul>
+                    <li>
+                        <strong>Dia Internacional da Mulher:</strong>
+                        uma data importante para celebrar as conquistas
+                        das mulheres e lutar por igualdade de direitos.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Abril: Páscoa, Dia dos Povos Indígenas e Chegada dos Portugueses ao Brasil</h3>
+                <ul>
+                    <li>
+                        <strong>Páscoa:</strong>
+                        a data é marcada por tradições como a visita
+                        do coelho e a caça ao tesouro.
+                    </li>
+
+                    <li>
+                        <strong>Dia dos Povos Indígenas:</strong>
+                        uma homenagem às culturas indígenas brasileiras,
+                        que preservam suas tradições e conhecimentos ancestrais.
+                    </li>
+
+                    <li>
+                        <strong>A chegada dos portugueses no Brasil:</strong>
+                        uma data importante para a história do Brasil,
+                        marcando o início da colonização portuguesa.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Maio: Dia das Mães e Dia do Trabalho</h3>
+                <ul>
+                    <li>
+                        <strong>Dia das Mães:</strong>
+                        uma data especial para homenagear as mães
+                        e expressar gratidão por todo o amor e carinho.
+                    </li>
+
+                    <li>
+                        <strong>Dia do Trabalho:</strong>
+                        uma celebração internacional que homenageia
+                        os trabalhadores e luta por melhores condições
+                        de trabalho.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Junho: Festa Junina</h3>
+                <ul>
+                    <li>
+                        <strong>Festa Junina:</strong>
+                        uma tradição brasileira. A festa é marcada
+                        por comidas típicas, quadrilha e muita música.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Agosto: Dia dos Pais</h3>
+                <ul>
+                    <li>
+                        <strong>Dia dos Pais:</strong>
+                        uma data para homenagear os pais e agradecer
+                        por todo o amor e cuidado.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Setembro: Independência do Brasil e Primavera</h3>
+                <ul>
+                    <li>
+                        <strong>Independência do Brasil:</strong>
+                        uma data que marca a independência política
+                        do Brasil.
+                    </li>
+
+                    <li>
+                        <strong>Primavera:</strong>
+                        a estação das flores, que traz consigo a
+                        renovação e a alegria da natureza.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Outubro: Dia das Crianças e Dia do Professor</h3>
+                <ul>
+                    <li>
+                        <strong>Dia das Crianças:</strong>
+                        uma data dedicada à celebração da infância
+                        e à importância de garantir os seus direitos.
+                    </li>
+
+                    <li>
+                        <strong>Dia do Professor:</strong>
+                        uma homenagem aos professores, que desempenham
+                        um papel fundamental na formação de cidadãos.
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="calendar-card">
+                <h3>Dezembro: Natal</h3>
+                <ul>
+                    <li>
+                        <strong>Natal:</strong>
+                        a data é marcada por tradições como doações,
+                        trocas de presentes e a decoração natalina.
+                    </li>
+                </ul>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+<!-- RODAPÉ -->
+
+<footer class="footer">
+    <div class="container logo">
+<img src="images/logo-fadelito-branco.svg" alt="Fadelito">
+    </div>
+</footer>
+
+</body>
+</html>
