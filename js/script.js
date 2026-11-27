@@ -1,3 +1,4 @@
+
 /* =========================================
    FADELITO - MATRÍCULAS 2027
    JAVASCRIPT PRINCIPAL
@@ -744,8 +745,9 @@ document.addEventListener("DOMContentLoaded", function () {
             age: "0 a 1 ano",
 
             description:
-                "O primeiro ano de vida é marcado por descobertas fundamentais. No Berçário, cada cuidado é também uma oportunidade de aprendizagem. Com acolhimento, atenção individualizada e estímulos adequados, proporcionamos experiências que favorecem o desenvolvimento sensorial, motor, cognitivo e afetivo do bebê."
-
+                "O primeiro ano de vida é marcado por descobertas fundamentais. No Berçário, cada cuidado é também uma oportunidade de aprendizagem. Com acolhimento, atenção individualizada e estímulos adequados, proporcionamos experiências que favorecem o desenvolvimento sensorial, motor, cognitivo e afetivo do bebê.",
+ 
+            page: "bercario.html"
         },
 
 
@@ -761,8 +763,9 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 "Para os nossos pequenos do Minimaternal, criamos um ambiente que é um convite constante à descoberta e ao aprendizado natural. Com muita música, brincadeiras e interações, cada momento de convivência se transforma em uma nova conquista.\n\n" +
 
-                "Nossa rotina de trabalho é rica em atividades que estimulam o desenvolvimento cognitivo, psicomotor e da linguagem do seu filho. Promovemos situações em que a criança tem a oportunidade de socializar e se integrar, ampliando e acelerando seu horizonte de conquistas. É o ponto de partida para um desenvolvimento pleno e feliz!"
+                "Nossa rotina de trabalho é rica em atividades que estimulam o desenvolvimento cognitivo, psicomotor e da linguagem do seu filho. Promovemos situações em que a criança tem a oportunidade de socializar e se integrar, ampliando e acelerando seu horizonte de conquistas. É o ponto de partida para um desenvolvimento pleno e feliz!",
 
+            page: "minimaternal.html"				
         },
 
 
@@ -778,7 +781,9 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 "No Maternal I, damos um foco especial ao desenvolvimento da linguagem oral do seu filho. De forma lúdica e bem prática, estimulamos o aprimoramento de todas as suas percepções sensoriais: tato, paladar, olfato, audição e visão. Também apoiamos e promovemos ativamente as interações sociais, fundamentais nesta fase.\n\n" +
 
-                "Este é um período muito importante, pois marca, para muitas crianças, a emocionante despedida das fraldas. As primeiras relações de amizade e a vontade de independência começam a florescer com o apoio de nossas educadoras e são impulsionadas pelas novas descobertas diárias. Seu filho desenvolverá a consciência corporal, o reconhecimento dos espaços e a comunicação será aprimorada por meio de músicas e histórias. Isso não só enriquece o vocabulário, mas também desenvolve a criatividade e a noção de tempo."
+                "Este é um período muito importante, pois marca, para muitas crianças, a emocionante despedida das fraldas. As primeiras relações de amizade e a vontade de independência começam a florescer com o apoio de nossas educadoras e são impulsionadas pelas novas descobertas diárias. Seu filho desenvolverá a consciência corporal, o reconhecimento dos espaços e a comunicação será aprimorada por meio de músicas e histórias. Isso não só enriquece o vocabulário, mas também desenvolve a criatividade e a noção de tempo.",
+	
+            page: "maternal1.html"	
 
         },
 
@@ -795,8 +800,10 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 "No Maternal II, continuamos a fortalecer o trabalho de socialização, mas com um foco maior na independência do seu filho. Nesta fase, percebemos que as crianças já demonstram um equilíbrio e coordenação de movimentos mais avançados, o que as encoraja a explorar mais o ambiente.\n\n" +
 
-                "É aqui que começamos a explorar o mundo dos numerais e quantidades, das cores vibrantes e das primeiras formas geométricas como triângulo, círculo e quadrado. No Maternal II, seu filho também terá o contato inicial com a leitura e a escrita de forma leve e significativa, entendendo-as como uma forma de se comunicar e interagir com o mundo. Estimulamos esse aprendizado prazeroso e constante através da associação do som com figuras, desenhos, histórias envolventes, jogos divertidos e muitos outros recursos criativos."
-
+                "É aqui que começamos a explorar o mundo dos numerais e quantidades, das cores vibrantes e das primeiras formas geométricas como triângulo, círculo e quadrado. No Maternal II, seu filho também terá o contato inicial com a leitura e a escrita de forma leve e significativa, entendendo-as como uma forma de se comunicar e interagir com o mundo. Estimulamos esse aprendizado prazeroso e constante através da associação do som com figuras, desenhos, histórias envolventes, jogos divertidos e muitos outros recursos criativos.",
+				
+            page: "maternal2.html"
+			
         },
 
 
@@ -814,7 +821,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 "É também no Jardim que a criança demonstra um interesse crescente pela leitura – tanto pela \"leitura do mundo\" ao seu redor quanto pela leitura das palavras. Ela começa a compreender o conceito de começo, meio e fim das histórias, exercitando a criatividade e construindo seus próprios enredos com um vocabulário cada vez mais rico.\n\n" +
 
-                "Em todas as nossas atividades, a ludicidade está presente, tornando o aprendizado uma grande brincadeira. Desenvolvemos outras habilidades importantes, como a autonomia, o domínio do corpo (esquema corporal e lateralidade), a coordenação, a compreensão de espaço e tempo, e todas as percepções sensoriais (visuais, auditivas, táteis, gustativas e olfativas). Seu filho estará em constante desenvolvimento, aprendendo de forma integral e divertida!"
+                "Em todas as nossas atividades, a ludicidade está presente, tornando o aprendizado uma grande brincadeira. Desenvolvemos outras habilidades importantes, como a autonomia, o domínio do corpo (esquema corporal e lateralidade), a coordenação, a compreensão de espaço e tempo, e todas as percepções sensoriais (visuais, auditivas, táteis, gustativas e olfativas). Seu filho estará em constante desenvolvimento, aprendendo de forma integral e divertida!",
+				
+			page: "jardim.html"
 
         },
 
@@ -833,8 +842,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 "Nesta fase, seu filho já é capaz de conectar o que aprendeu com as situações do dia a dia. Ele irá consolidar e ampliar seu conhecimento dos números, começando a fazer pequenos cálculos e operações matemáticas simples. Também aprofundará o aprendizado das letras, construindo sílabas, palavras e pequenas frases.\n\n" +
 
-                "É no Pré que auxiliamos a criança a desenvolver a leitura e escrita espontânea, sempre acompanhando o ritmo e o processo individual de cada aluno. Oferecemos apoio e situações de crescimento que respeitam as individualidades, construindo bases sólidas para que seu filho inicie o Ensino Fundamental de forma segura e confiante. Ele estará pronto para os próximos desafios!"
-
+                "É no Pré que auxiliamos a criança a desenvolver a leitura e escrita espontânea, sempre acompanhando o ritmo e o processo individual de cada aluno. Oferecemos apoio e situações de crescimento que respeitam as individualidades, construindo bases sólidas para que seu filho inicie o Ensino Fundamental de forma segura e confiante. Ele estará pronto para os próximos desafios!",
+				
+		    page: "pre.html"
+			
         }
 
     };
@@ -869,6 +880,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "aria-hidden",
             "false"
         );
+		
+		document.getElementById("turmaModalButton").href = turma.page || "#";
 
         document.body.classList.add("modal-open");
 
